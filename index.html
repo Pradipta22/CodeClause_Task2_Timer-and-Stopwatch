@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Timer and Stopwatch</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="content">
+            <p>Hello</p>
+            <h3>Digital Clock with stopwatch and Timer</h3>
+            <p class="type">Clock</p>
+        </div>
+
+        <div class="outer-wrapper">
+            <!-------clock------------->
+            <div class="clock hidden">
+                <div class="wrapper">
+                    <div class="main">
+                        <div class="hour">
+                            <p class="number" id="hour">00</p>
+                            <p>Hour</p>
+                        </div>
+                        <p class="colon">:</p>
+                        <div class="min">
+                            <p class="number" id="min">00</p>
+                            <p>Min</p>
+                        </div>
+                        <p class="colon">:</p>
+                        <div class="sec">
+                            <p class="number" id="sec">00</p>
+                            <p>Sec</p>
+                        </div>
+                        <p class="colon">:</p>
+                        <div class="ampm">
+                            <p class="number" id="ampm">AM</p>
+                            <p class="other-ampm"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="btns">
+                    <button class="btn">Stopwatch</button>
+                    <button class="btn">Timer</button>
+                </div>
+            </div>
+
+            <!------Stopwatch------------>
+            <div class="stopwatch ">
+                <div class="wrapper">
+                    <div class="main">
+                        <div class="hour">
+                            <p class="number" id="stopwatch-hour">00</p>
+                            <p>Hour</p>
+                        </div>
+                        <p class="colon">:</p>
+                        <div class="min">
+                            <p class="number" id="stopwatch-min">00</p>
+                            <p>Min</p>
+                        </div>
+                        <p class="colon">:</p>
+                        <div class="sec">
+                            <p class="number" id="stopwatch-sec">00</p>
+                            <p>Sec</p>
+                        </div>
+                        <p class="colon">:</p>
+                        <div class="milisecond">
+                            <p class="number" id="stopwatch-ms">00</p>
+                            <p>milisecond</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="laps">
+                    <!-- <div class="lap active">
+                        <p>lap 1</p>
+                        <p>00.00</p>
+                    </div>
+                    <div class="lap">
+                        <p>lap 1</p>
+                        <p>00.00</p>
+                    </div> -->
+                </div>
+                <div class="btns">
+                    <button class="btn start-stopwatch">Start</button>
+                    <button class="btn lap-stopwatch hidden">Lap</button>
+                    <button class="btn reset-stopwatch">Reset</button>
+                    <button class="btn back-stopwatch">Back</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous"></script>
+
+    <script src="./app.js"></script>
+</body>
+
+</html>
