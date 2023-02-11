@@ -1,3 +1,21 @@
+$(".stopwatch-btn").click(function(){
+  $(".outer-wrapper > div").slideUp()
+  $(".stopwatch").slideDown()
+  $(".type").html("stopwatch")
+})
+$(".timer-btn").click(function(){
+  $(".outer-wrapper > div").slideUp()
+  $(".timer").slideDown()
+  $(".type").html("timer")
+})
+
+$(".back-btn").click(function(){
+  $(".outer-wrapper > div").slideUp()
+  $(".clock").slideDown()
+  $(".type").html("clock")
+})
+
+
 const addTrailingZero = (num) =>{
     return num < 10 ? "0" + num : num;
   };
@@ -127,3 +145,93 @@ const stopwatch = () =>{
   
 
   })
+
+  //timer
+  let time = 0
+    timerHours = 0
+    timerMinutes = 0
+    timerSeconds = 0
+    timerMiliSeconds = 0
+    timerInterval= 0;
+
+const getTime = () =>{
+  time = prompt("Enter time in minutes")
+  time = time * 60
+  setTime()
+}    
+
+const setTime = () =>{
+  timerHours = Math.floor(time / 3600)
+  timerMinutes = Math.floor((time % 3600) / 60)
+  timerSeconds = Math.floor(time % 60)
+
+  //shows values
+  $("#timer-hour").html(addTrailingZero(timerHours));
+  $("#timer-min").html(addTrailingZero(timerMinutes));
+  $("#timer-sec").html(addTrailingZero(timerSeconds));
+  $("#timer-ms").html(addTrailingZero(timerMiliSeconds));
+}
+
+const timer = () =>{
+ timerMiliSeconds--
+ if(timerMiliSeconds == -1){
+  timerMiliSeconds = 99
+  timerSeconds--
+ }
+ if(timerSeconds == -1){
+  timerSeconds = 59
+  timerMinutes--
+ }
+ if(timerMinutes == -1){
+  timerMinutes = 59
+  timerHours--
+ }
+
+ //update values
+ $("#timer-hour").html(addTrailingZero(timerHours));
+ $("#timer-min").html(addTrailingZero(timerMinutes));
+ $("#timer-sec").html(addTrailingZero(timerSeconds));
+ $("#timer-ms").html(addTrailingZero(timerMiliSeconds));
+
+ //check time up
+ timeup()
+
+}
+const startTimer = () =>{
+  if ((timerHours == 0) & (timerMinutes == 0) && timerSeconds ==0 && timerMiliSeconds == 0){
+    getTime()
+  } else {
+    timerInterval = setInterval(timer, 10)
+    $(".start-timer").hide()
+    $(".stop-timer").show()
+  }
+}
+
+const stopTimer = () =>{
+  clearInterval(timerInterval)
+  $(".start-timer").show()
+  $(".stop-timer").hide()
+}
+
+const resetTimer = () =>{
+  stopTimer()
+  time = 0
+  setTime()
+}
+ const timeup = () =>{
+  if (timerHours == 0 && timerMinutes == 0 
+       && timerSeconds ==0 && timerMiliSeconds == 0){
+        resetTimer()
+        alert("Tiime`s up")
+       }
+ }
+
+$(".start-timer").click(function (){
+  startTimer()
+})
+$(".stop-timer").click(function (){
+  stopTimer()
+})
+$(".reset-timer").click(function (){
+  resetTimer()
+})
